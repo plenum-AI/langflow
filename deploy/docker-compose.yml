@@ -67,7 +67,7 @@ services:
         - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
 
   backend: &backend
-    image: "langflowai/langflow-backend:latest"
+    image: "wellimd/langflow_backend_plenum:latest"
     depends_on:
       - db
       - broker
@@ -134,7 +134,7 @@ services:
     <<: *backend
     env_file:
       - .env
-    command: /bin/sh -c "python -m celery -A langflow.worker.celery_app worker --loglevel=INFO --concurrency=1 -n lf-worker@%h -P eventlet"
+    command: /bin/sh -c "python -m ensurepip --upgrade && python -m pip install --no-cache-dir celery && python -m celery -A langflow.worker.celery_app worker --loglevel=INFO --concurrency=1 -n lf-worker@%h"
     healthcheck:
       test: "exit 0"
     deploy:
@@ -148,8 +148,7 @@ services:
       - default
     environment:
       - FLOWER_PORT=5555
-
-    command: /bin/sh -c "python -m celery -A langflow.worker.celery_app --broker=${BROKER_URL?Variable not set} flower --port=5555"
+    command: /bin/sh -c "python -m ensurepip --upgrade && python -m pip install --no-cache-dir celery flower && FLOWER_ADDRESS=0.0.0.0 FLOWER_PORT=5555 python -m celery --broker ${BROKER_URL?Variable not set} flower"
     deploy:
       labels:
         - traefik.enable=true
@@ -165,7 +164,7 @@ services:
         - traefik.http.services.${STACK_NAME?Variable not set}-flower.loadbalancer.server.port=5555
 
   frontend:
-    image: "langflowai/langflow-frontend:latest"
+    image: "wellimd/langflow_frontend_plenum:latest"
     env_file:
       - .env
     restart: on-failure

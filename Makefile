@@ -1,7 +1,7 @@
 .PHONY: all init format_backend format_frontend format lint build build_frontend install_frontend run_frontend run_backend dev help tests coverage clean_python_cache clean_npm_cache clean_all
 
 # Configurations
-VERSION=$(shell grep "^version" pyproject.toml | sed 's/.*\"\(.*\)\"$$/\1/')
+VERSION := 1.1.4
 DOCKERFILE=docker/build_and_push.Dockerfile
 DOCKERFILE_BACKEND=docker/build_and_push_backend.Dockerfile
 DOCKERFILE_FRONTEND=docker/frontend/build_and_push_frontend.Dockerfile
@@ -343,21 +343,21 @@ dockerfile_build:
 	@echo 'BUILDING DOCKER IMAGE: ${DOCKERFILE}'
 	@docker build --rm \
 		-f ${DOCKERFILE} \
-		-t langflow:${VERSION} .
+		-t plenum/langflow:${VERSION} .
 
 dockerfile_build_be: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE BACKEND: ${DOCKERFILE_BACKEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=langflow:${VERSION} \
+		--build-arg LANGFLOW_IMAGE=plenum/langflow:${VERSION} \
 		-f ${DOCKERFILE_BACKEND} \
-		-t langflow_backend:${VERSION} .
+		-t plenum/langflow_backend:${VERSION} .
 
 dockerfile_build_fe: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE FRONTEND: ${DOCKERFILE_FRONTEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=langflow:${VERSION} \
+		--build-arg LANGFLOW_IMAGE=plenum/langflow:${VERSION} \
 		-f ${DOCKERFILE_FRONTEND} \
-		-t langflow_frontend:${VERSION} .
+		-t plenum/langflow_frontend:${VERSION} .
 
 clear_dockerimage:
 	@echo 'Clearing the docker build'
