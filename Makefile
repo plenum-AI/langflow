@@ -343,21 +343,21 @@ dockerfile_build:
 	@echo 'BUILDING DOCKER IMAGE: ${DOCKERFILE}'
 	@docker build --rm \
 		-f ${DOCKERFILE} \
-		-t plenum/langflow:${VERSION} .
+		-t wellimd/langflow_plenum:${VERSION} .
 
 dockerfile_build_be: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE BACKEND: ${DOCKERFILE_BACKEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=plenum/langflow:${VERSION} \
+		--build-arg LANGFLOW_IMAGE=wellimd/langflow_plenum:${VERSION} \
 		-f ${DOCKERFILE_BACKEND} \
-		-t plenum/langflow_backend:${VERSION} .
+		-t wellimd/langflow_backend_plenum:${VERSION} .
 
 dockerfile_build_fe: dockerfile_build
 	@echo 'BUILDING DOCKER IMAGE FRONTEND: ${DOCKERFILE_FRONTEND}'
 	@docker build --rm \
-		--build-arg LANGFLOW_IMAGE=plenum/langflow:${VERSION} \
+		--build-arg LANGFLOW_IMAGE=wellimd/langflow_plenum:${VERSION} \
 		-f ${DOCKERFILE_FRONTEND} \
-		-t plenum/langflow_frontend:${VERSION} .
+		-t wellimd/langflow_frontend_plenum:${VERSION} .
 
 clear_dockerimage:
 	@echo 'Clearing the docker build'
