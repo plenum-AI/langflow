@@ -40,7 +40,7 @@ export const EmptyPage = ({ setOpenModal }: EmptyPageProps) => {
               className="h-4 w-4"
             />
             <span className="hidden whitespace-nowrap font-semibold md:inline">
-              New Flow
+              New Automation
             </span>
           </Button>
         </div>
