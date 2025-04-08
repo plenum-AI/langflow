@@ -67,7 +67,7 @@ test(
 test("add a flow into a folder by drag and drop", async ({ page }) => {
   await page.goto("/");
 
-  await page.waitForSelector("text=New Flow", {
+  await page.waitForSelector("text=New Automation", {
     timeout: 50000,
   });
 

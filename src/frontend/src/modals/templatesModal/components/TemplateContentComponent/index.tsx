@@ -59,7 +59,7 @@ export default function TemplateContentComponent({
     addFlow({ flow: example }).then((id) => {
       navigate(`/flow/${id}/folder/${folderIdUrl}`);
     });
-    track("New Flow Created", { template: `${example.name} Template` });
+    track("New Automation Created", { template: `${example.name} Template` });
   };
 
   const handleClearSearch = () => {

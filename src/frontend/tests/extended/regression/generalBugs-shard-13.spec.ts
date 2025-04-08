@@ -43,11 +43,11 @@ test(
 
     await page.getByTestId("icon-ChevronLeft").first().click();
 
-    await expect(page.getByText("New Flow", { exact: true })).toBeVisible({
+    await expect(page.getByText("New Automation", { exact: true })).toBeVisible({
       timeout: 3000,
     });
 
-    await page.getByText("New Flow", { exact: true }).click();
+    await page.getByText("New Automation", { exact: true }).click();
 
     await page.getByTestId("side_nav_options_all-templates").click();
     await page.getByRole("heading", { name: "Basic Prompting" }).click();
@@ -83,7 +83,7 @@ test(
 
     await page.getByTestId("shared-button-flow").click();
 
-    await page.waitForSelector("text=Publish workflow to the Langflow Store.", {
+    await page.waitForSelector("text=Publish workflow to the Automation Builder Store.", {
       timeout: 10000,
     });
     await page.waitForSelector('[data-testid="shared-button-flow"]', {

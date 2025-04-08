@@ -4,7 +4,7 @@ import path from "path";
 import { awaitBootstrapTest } from "../../utils/await-bootstrap-test";
 
 test(
-  "user must be able to create a new flow clicking on New Flow button",
+  "user must be able to create a new automation clicking on New Automation button",
   { tag: ["@release"] },
   async ({ page }) => {
     test.skip(
@@ -24,17 +24,17 @@ test(
 
     await page.getByText("New Folder").last().click();
 
-    await page.waitForSelector("text=new flow", { timeout: 30000 });
+    await page.waitForSelector("text=new automation", { timeout: 30000 });
 
     expect(
       (
-        await page.waitForSelector("text=new flow", {
+        await page.waitForSelector("text=new automation", {
           timeout: 30000,
         })
       ).isVisible(),
     );
 
-    await page.getByText("New Flow", { exact: true }).click();
+    await page.getByText("New Automation", { exact: true }).click();
 
     await page.getByTestId("side_nav_options_all-templates").click();
     await page.getByRole("heading", { name: "Basic Prompting" }).click();

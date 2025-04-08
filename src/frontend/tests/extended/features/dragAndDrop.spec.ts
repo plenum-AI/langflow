@@ -8,7 +8,7 @@ test(
   async ({ page }) => {
     await awaitBootstrapTest(page);
 
-    //add a new flow just to have the workspace available
+    //add a new automation just to have the workspace available
     await page.getByTestId("side_nav_options_all-templates").click();
     await page.getByRole("heading", { name: "Basic Prompting" }).click();
 
@@ -62,7 +62,7 @@ test(
   async ({ page }) => {
     await awaitBootstrapTest(page);
 
-    //add a new flow just to have the workspace available
+    //add a new automation just to have the workspace available
     await page.getByTestId("side_nav_options_all-templates").click();
     await page.getByRole("heading", { name: "Basic Prompting" }).click();
 

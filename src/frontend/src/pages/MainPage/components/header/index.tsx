@@ -135,7 +135,7 @@ const HeaderComponent = ({
                 ))}
               </div>
             </div>
-            <ShadTooltip content="New Flow" side="bottom">
+            <ShadTooltip content="New Automation" side="bottom">
               <Button
                 variant="default"
                 className="!px-3 md:!px-4 md:!pl-3.5"
@@ -149,7 +149,7 @@ const HeaderComponent = ({
                   className="h-4 w-4"
                 />
                 <span className="hidden whitespace-nowrap font-semibold md:inline">
-                  New Flow
+                  New Automation
                 </span>
               </Button>
             </ShadTooltip>

@@ -115,38 +115,30 @@ export const AccountMenu = () => {
               </HeaderMenuItemLink>
             )}
           </HeaderMenuItemsSection>
-          <HeaderMenuItemsSection>
-            {ENABLE_DATASTAX_LANGFLOW ? (
-              <HeaderMenuItemLink
-                newPage
-                href="https://github.com/langflow-ai/langflow"
-              >
-                <div className="-my-2 mr-2 flex w-full items-center justify-between">
-                  <div className="text-sm">Star the repo</div>
-                  <GithubStarComponent />
-                </div>
-              </HeaderMenuItemLink>
-            ) : (
-              <HeaderMenuItemLink
-                newPage
-                href="https://github.com/langflow-ai/langflow/discussions"
-              >
-                <span data-testid="menu_github_button" id="menu_github_button">
-                  Share Feedback on Github
-                </span>
-              </HeaderMenuItemLink>
-            )}
-            <HeaderMenuItemLink newPage href="https://twitter.com/langflow_ai">
-              <span data-testid="menu_twitter_button" id="menu_twitter_button">
-                Follow Langflow on X
-              </span>
-            </HeaderMenuItemLink>
-            <HeaderMenuItemLink newPage href="https://discord.gg/EqksyE2EX9">
-              <span data-testid="menu_discord_button" id="menu_discord_button">
-                Join the Langflow Discord
-              </span>
-            </HeaderMenuItemLink>
-          </HeaderMenuItemsSection>
+          {/*
+            <HeaderMenuItemsSection>
+              {ENABLE_DATASTAX_LANGFLOW ? (
+                <HeaderMenuItemLink
+                  newPage
+                  href="https://github.com/plenum-AI"
+                >
+                  <div className="-my-2 mr-2 flex w-full items-center justify-between">
+                    <div className="text-sm">Star the repo</div>
+                    <GithubStarComponent />
+                  </div>
+                </HeaderMenuItemLink>
+              ) : (
+                <HeaderMenuItemLink
+                  newPage
+                  href="https://github.com/plenum-AI/discussions"
+                >
+                  <span data-testid="menu_github_button" id="menu_github_button">
+                    Share Feedback on Github
+                  </span>
+                </HeaderMenuItemLink>
+              )}
+            </HeaderMenuItemsSection>
+          */}
           {ENABLE_DATASTAX_LANGFLOW ? (
             <HeaderMenuItemsSection>
               <HeaderMenuItemLink href="/session/logout" icon="log-out">

@@ -27,7 +27,7 @@ export default function TemplateGetStartedCardComponent({
       addFlow({ flow }).then((id) => {
         navigate(`/flow/${id}/folder/${folderIdUrl}`);
       });
-      track("New Flow Created", { template: `${flow.name} Template` });
+      track("New Automation Created", { template: `${flow.name} Template` });
     } else {
       console.error(`Flow template not found`);
     }

@@ -139,7 +139,7 @@ const HomePage = ({ type }) => {
                         onClick={() => setNewProjectModal(true)}
                         className="cursor-pointer underline"
                       >
-                        Create a new flow
+                        Create a new automation
                       </a>
                       , or browse the store.
                     </div>

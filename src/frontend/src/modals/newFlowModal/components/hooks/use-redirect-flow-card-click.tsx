@@ -13,7 +13,7 @@ export function useFlowCardClick() {
       updateIds(flow.data!);
       const id = await addFlow({ flow });
       navigate(`/flow/${id}/folder/${folderIdUrl}`);
-      track("New Flow Created", { template: `${flow.name} Template` });
+      track("New Automation Created", { template: `${flow.name} Template` });
     } catch (error) {
       console.error("Error handling flow card click:", error);
     }
